@@ -4,7 +4,7 @@ import sut  # Replace 'your_module' with the name of your Python script (without
 from aiohttp.test_utils import TestClient, TestServer
 
 @pytest.mark.asyncio
-async def test_fetch_endpoint(): ## pip install aiohttp[testing]
+async def test_fetch_endpoint():
     server = TestServer(sut.app)
     async with TestClient(server) as client:
         # Send POST request to /fetch
