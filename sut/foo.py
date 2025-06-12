@@ -23,7 +23,7 @@ async def handle_fetch(request):
     return web.json_response(result)
 
 # Configure routes
-app.router.add_post('/fetch', handle_fetch)
+app.router.add_get('/fetch', handle_fetch)
 
 # Run the server
 if __name__ == "__main__":

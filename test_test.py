@@ -20,7 +20,7 @@ async def test_fetch_endpoint():
         server = TestServer(sut.app)
         async with TestClient(server) as client:
             # Send POST request to /fetch
-            resp = await client.post('/fetch')
+            resp = await client.get('/fetch')
 
             # Check response status
             assert resp.status == 200
