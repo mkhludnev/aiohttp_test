@@ -12,6 +12,7 @@ async def fetch_url():
                 return content
             else:
                 print(f"Request failed with status: {response.status}")
+                return str(response.status)
 
 # Web application setup
 app = web.Application()
