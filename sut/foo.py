@@ -4,15 +4,15 @@ from aiohttp import web
 async def fetch_url():
     url = "http://gstatic.com"
     async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            # Check HTTP status
-            if response.status == 200:
-                content = await response.text()
-                print(f"Success! Response (first 100 chars): {content[:100]}")
-                return content
-            else:
-                print(f"Request failed with status: {response.status}")
-                return str(response.status)
+        response = await session.get(url)
+        # Check HTTP status
+        if response.status == 200:
+            content = await response.text()
+            print(f"Success! Response (first 100 chars): {content[:100]}")
+            return content
+        else:
+            print(f"Request failed with status: {response.status}")
+            return str(response.status)
 
 # Web application setup
 app = web.Application()

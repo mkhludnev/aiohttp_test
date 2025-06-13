@@ -11,8 +11,8 @@ async def test_fetch_endpoint():
 
     # Create a mock for aiohttp.ClientSession.get
     mock_get = AsyncMock()
-    mock_get.return_value.__aenter__.return_value.text = AsyncMock(return_value=str(mock_response_json))
-    mock_get.return_value.__aenter__.return_value.status = 666
+    mock_get.return_value.text = AsyncMock(return_value=str(mock_response_json))
+    mock_get.return_value.status = 666
 
     # Patch aiohttp.ClientSession.get
     with patch("aiohttp.ClientSession.get", mock_get):
